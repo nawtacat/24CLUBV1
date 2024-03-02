@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">24CLUB</string>
+    <string name="category_2">Category 2</string>
+    <string name="category_1">Category 1</string>
+    <string name="total_questions">Total Questions</string>
+    <string name="ans_a">Ans A</string>
+    <string name="ans_d">Ans D</string>
+    <string name="ans_c">Ans C</string>
+    <string name="ans_b">Ans B</string>
+    <string name="winner_of_uefa_champions_league_2003">Winner of UEFA Champions League 2003</string>
+    <string name="submit">Submit</string>
 </resources>
