@@ -12,7 +12,7 @@
         android:id="@+id/quiz_btn"
         android:layout_width="300dp"
         android:layout_height="170dp"
-        android:text="@string/quiza"
+        android:text="@string/quiz"
         android:textSize="30sp"
         android:textColor="@color/white"
         android:background="@drawable/rounded_button"
