@@ -9,4 +9,8 @@
     <string name="ans_b">Ans B</string>
     <string name="winner_of_uefa_champions_league_2003">Winner of UEFA Champions League 2003</string>
     <string name="submit">Submit</string>
+    <string name="newspaper">Newspaper</string>
+    <string name="settings">Settings</string>
+    <string name="quiz">Quiz</string>
+    <string name="quiza">quiz</string>
 </resources>
