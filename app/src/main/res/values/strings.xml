@@ -15,4 +15,6 @@
     <string name="quiza">quiz</string>
     <string name="hello">Hello</string>
     <string name="thetext">"The sun rose slowly over the horizon, casting a warm glow across the tranquil countryside. Birds chirped merrily, heralding the arrival of a new day. In the distance, a gentle breeze rustled through the trees, carrying with it the sweet scent of blooming flowers. As the morning unfolded, people emerged from their homes, ready to embrace the opportunities that lay ahead. Each step forward was filled with anticipation and excitement, a testament to the endless possibilities of life. And amidst it all, the world seemed to pause, as if savoring the beauty of the present moment."</string>
+    <string name="articles">Articles</string>
+    <string name="article_title">Article Title</string>
 </resources>

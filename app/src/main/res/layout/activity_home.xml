@@ -23,7 +23,7 @@
         android:layout_width="300dp"
         android:layout_height="170dp"
         android:textSize="30sp"
-        android:text="Articles"
+        android:text="@string/articles"
         android:textColor="@color/white"
         android:background="@drawable/rounded_button"
         android:alpha="0.8"
