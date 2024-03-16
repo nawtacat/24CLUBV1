@@ -1,5 +1,7 @@
 package com.example.a24club;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -17,6 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Home extends AppCompatActivity {
 
     private Button quizButton;
+    private Button articlesButton;
+    private Button settingsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,13 @@ public class Home extends AppCompatActivity {
 
         // Initialize quizButton
         quizButton = findViewById(R.id.quiz_btn);
+        quizButton.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
+
+        articlesButton = findViewById(R.id.articles_btn);
+        articlesButton.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
+
+        settingsButton = findViewById(R.id.settings_btn);
+        settingsButton.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
 
         // Set OnClickListener on quizButton
         quizButton.setOnClickListener(new View.OnClickListener() {

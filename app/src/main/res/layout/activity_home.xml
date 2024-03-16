@@ -10,33 +10,33 @@
 
     <Button
         android:id="@+id/quiz_btn"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="170dp"
         android:text="@string/quiz"
         android:textSize="30sp"
         android:textColor="@color/white"
         android:background="@drawable/rounded_button"
-        android:alpha="0.8"
+        android:alpha="0.6"
         android:layout_margin="20dp"/>
     <Button
         android:id="@+id/articles_btn"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="170dp"
         android:textSize="30sp"
         android:text="@string/articles"
         android:textColor="@color/white"
         android:background="@drawable/rounded_button"
-        android:alpha="0.8"
+        android:alpha="0.6"
         android:layout_margin="20dp"/>
     <Button
         android:id="@+id/settings_btn"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:textSize="30sp"
         android:layout_height="170dp"
         android:text="@string/settings"
         android:textColor="@color/white"
         android:background="@drawable/rounded_button"
-        android:alpha="0.8"
+        android:alpha="0.6"
         android:layout_margin="20dp"/>
 
 
