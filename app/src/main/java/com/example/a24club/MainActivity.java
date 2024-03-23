@@ -1,5 +1,6 @@
 package com.example.a24club;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -15,12 +16,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    TextView totalQuestionsTextView;
+    //TextView totalQuestionsTextView;
     TextView questionTextView;
     Button ansA, ansB, ansC, ansD;
     Button submitBtn;
 
-    int score=0;
+    public static int score = 0;
+    public static int highest_score = 0;
     int totalQuestion = QuestionAnswer.question.length;
     int currentQuestionIndex = 0;
     String selectedAnswer = "";
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        totalQuestionsTextView = findViewById(R.id.total_question);
+        //totalQuestionsTextView = findViewById(R.id.total_question);
         questionTextView = findViewById(R.id.question);
         ansA = findViewById(R.id.answer1);
         ansB = findViewById(R.id.answer2);
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ansD.setOnClickListener(this);
         submitBtn.setOnClickListener(this);
 
-        totalQuestionsTextView.setText("Total questions : "+totalQuestion);
+        //totalQuestionsTextView.setText(String.valueOf(totalQuestion));
 
         loadNewQuestion();
 
@@ -82,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     void loadNewQuestion(){
 
         if(currentQuestionIndex == totalQuestion ){
+
             finishQuiz();
             return;
         }
@@ -95,6 +98,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     void finishQuiz(){
+        if(highest_score < score){
+            highest_score = score * 100 / QuestionAnswer.question.length;
+        }
         String passStatus = "";
         if(score > totalQuestion*0.60){
             passStatus = "Passed";
@@ -105,17 +111,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         new AlertDialog.Builder(this)
                 .setTitle(passStatus)
                 .setMessage("Score is "+ score+" out of "+ totalQuestion)
-                .setPositiveButton("Restart",(dialogInterface, i) -> restartQuiz() )
+                .setPositiveButton("Practice again",(dialogInterface, i) -> practiceAgain() )
                 .setCancelable(false)
                 .show();
 
 
     }
 
-    void restartQuiz(){
+    void practiceAgain() {
         score = 0;
-        currentQuestionIndex =0;
-        loadNewQuestion();
+        currentQuestionIndex = 0;
+
+        // Create an Intent to start the Categories activity
+        Intent intent = new Intent(MainActivity.this, Categories.class);
+        startActivity(intent);
     }
 
 }

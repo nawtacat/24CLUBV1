@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/campnou"
+    tools:context=".Home">
+
+    <Button
+        android:id="@+id/cat1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="@string/champions_league"
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_button"
+        android:layout_margin="20dp"/>
+    <Button
+        android:id="@+id/cat2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textSize="17sp"
+        android:text="@string/euro_2016"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_button"
+        android:layout_margin="20dp"/>
+    <Button
+        android:id="@+id/cat3"
+        android:layout_width="match_parent"
+        android:textSize="17sp"
+        android:layout_height="100dp"
+        android:text="@string/eredivise"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_button"
+        android:layout_margin="20dp"/>
+
+
+    <!-- Add more buttons as needed -->
+
+</LinearLayout>

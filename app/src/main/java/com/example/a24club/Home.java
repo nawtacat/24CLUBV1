@@ -42,7 +42,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create an Intent to start MainActivity
-                Intent intent = new Intent(Home.this, MainActivity.class);
+                Intent intent = new Intent(Home.this, Categories.class);
 
                 // Start MainActivity
                 startActivity(intent);
