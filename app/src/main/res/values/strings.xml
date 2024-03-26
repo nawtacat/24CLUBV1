@@ -20,4 +20,6 @@
     <string name="champions_league">Champions League</string>
     <string name="euro_2016">Euro 2016</string>
     <string name="eredivise">Eredivise</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account_log_in">Already have an account? Log in</string>
 </resources>
