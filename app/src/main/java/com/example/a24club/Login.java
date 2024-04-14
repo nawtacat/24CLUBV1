@@ -1,6 +1,8 @@
 package com.example.a24club;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +38,9 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+
+
         mAuth = FirebaseAuth.getInstance();
 
         username = findViewById(R.id.username);
@@ -61,6 +66,9 @@ public class Login extends AppCompatActivity {
                                 if (task.isSuccessful()) {
 
                                     startActivity(new Intent(Login.this, Home.class));
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putBoolean("isLoggedIn", true);
+                                    editor.apply();
                                     finish();
                                 } else {
                                     // If sign in fails, display a message to the user.

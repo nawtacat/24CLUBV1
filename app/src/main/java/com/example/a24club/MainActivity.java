@@ -3,6 +3,7 @@ package com.example.a24club;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -67,9 +68,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(clickedButton.getId()==R.id.submit_btn){
             if(selectedAnswer.equals(QuestionAnswer.correctAnswers[currentQuestionIndex])){
                 score++;
+
             }
+            if(selectedAnswer == QuestionAnswer.correctAnswers[0]){
+                ansA.setBackgroundColor(Color.GREEN);
+            }
+            if(selectedAnswer == QuestionAnswer.correctAnswers[1]){
+                ansB.setBackgroundColor(Color.GREEN);
+            }
+            if(selectedAnswer == QuestionAnswer.correctAnswers[2]){
+                ansC.setBackgroundColor(Color.GREEN);
+            }
+            if(selectedAnswer == QuestionAnswer.correctAnswers[3]){
+                ansD.setBackgroundColor(Color.GREEN);
+            }
+
             currentQuestionIndex++;
-            loadNewQuestion();
+            final Handler handler = new Handler();
+
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadNewQuestion();
+                }
+            }, 2000);
 
 
         }else{

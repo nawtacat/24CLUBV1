@@ -58,6 +58,14 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the ArticlesActivity when the button is clicked
+                Intent intent = new Intent(Home.this,Settings.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
