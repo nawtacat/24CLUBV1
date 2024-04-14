@@ -1,9 +1,12 @@
 package com.example.a24club;
 
+import static com.example.a24club.QuestionAnswer.correctAnswers;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -66,26 +69,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button clickedButton = (Button) view;
         if(clickedButton.getId()==R.id.submit_btn){
-            if(selectedAnswer.equals(QuestionAnswer.correctAnswers[currentQuestionIndex])){
+            if(selectedAnswer.equals(correctAnswers[currentQuestionIndex])){
                 score++;
-
             }
-            if(selectedAnswer == QuestionAnswer.correctAnswers[0]){
+
+
+            //GoGreen Logic Here
+            if(QuestionAnswer.choices[currentQuestionIndex][0].equals(correctAnswers[currentQuestionIndex])){
                 ansA.setBackgroundColor(Color.GREEN);
             }
-            if(selectedAnswer == QuestionAnswer.correctAnswers[1]){
+
+            if(QuestionAnswer.choices[currentQuestionIndex][1].equals(correctAnswers[currentQuestionIndex])){
                 ansB.setBackgroundColor(Color.GREEN);
             }
-            if(selectedAnswer == QuestionAnswer.correctAnswers[2]){
+
+            if(QuestionAnswer.choices[currentQuestionIndex][2].equals(correctAnswers[currentQuestionIndex])){
                 ansC.setBackgroundColor(Color.GREEN);
             }
-            if(selectedAnswer == QuestionAnswer.correctAnswers[3]){
+
+            if(QuestionAnswer.choices[currentQuestionIndex][3].equals(correctAnswers[currentQuestionIndex])){
                 ansD.setBackgroundColor(Color.GREEN);
             }
-
             currentQuestionIndex++;
-            final Handler handler = new Handler();
 
+            Handler handler = new Handler(Looper.getMainLooper());
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -116,6 +123,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ansB.setText(QuestionAnswer.choices[currentQuestionIndex][1]);
         ansC.setText(QuestionAnswer.choices[currentQuestionIndex][2]);
         ansD.setText(QuestionAnswer.choices[currentQuestionIndex][3]);
+
+        ansA.setBackgroundColor(Color.WHITE);
+        ansB.setBackgroundColor(Color.WHITE);
+        ansC.setBackgroundColor(Color.WHITE);
+        ansD.setBackgroundColor(Color.WHITE);
 
     }
 
