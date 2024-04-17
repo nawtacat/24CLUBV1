@@ -14,6 +14,7 @@
         android:layout_height="100dp"
         android:text="@string/champions_league"
         android:textSize="17sp"
+        android:alpha="0.6"
         android:textColor="@color/white"
         android:background="@drawable/rounded_button"
         android:layout_margin="20dp"/>
@@ -21,6 +22,7 @@
         android:id="@+id/cat2"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:alpha="0.6"
         android:textSize="17sp"
         android:text="@string/euro_2016"
         android:textColor="@color/white"
@@ -29,6 +31,7 @@
     <Button
         android:id="@+id/cat3"
         android:layout_width="match_parent"
+        android:alpha="0.6"
         android:textSize="17sp"
         android:layout_height="100dp"
         android:text="@string/eredivise"
