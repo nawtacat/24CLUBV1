@@ -30,7 +30,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class Register extends AppCompatActivity {
     EditText editTextEmail, editTextPassword;
     Button buttonReg;
-    FirebaseAuth mAuth;
+
     TextView textView;
 
     @Override
@@ -38,6 +38,7 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_register);
+        FirebaseAuth mAuth;
 
         // Inside your MainActivity or the launcher activity
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
