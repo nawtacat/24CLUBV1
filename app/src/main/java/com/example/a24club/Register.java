@@ -62,13 +62,23 @@ public class Register extends AppCompatActivity {
 
             }
         });
+        mAuth.addIdTokenListener(new FirebaseAuth.IdTokenListener() {
+            @Override
+            public void onIdTokenChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null && user.isEmailVerified()) {
+                    startActivity(new Intent(Register.this, Login.class));
+                    finish();
+                }
+            }
+        });
 
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email, password;
                 email = String.valueOf(editTextEmail.getText());
-                password = String.valueOf((editTextPassword).getText());
+                password = String.valueOf(editTextPassword.getText());
 
                 if(TextUtils.isEmpty(email)){
                     Toast.makeText(Register.this, "Enter Email", Toast.LENGTH_SHORT).show();
@@ -76,23 +86,38 @@ public class Register extends AppCompatActivity {
                 }
                 if(TextUtils.isEmpty(password)){
                     Toast.makeText(Register.this, "Enter Password", Toast.LENGTH_SHORT).show();
-                    return; // Added return statement here
+                    return;
                 }
+
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(Register.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                                    // Send verification email
+                                    mAuth.getCurrentUser().sendEmailVerification()
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+                                                        Toast.makeText(Register.this, "Verification email sent, please verify your email and then log in", Toast.LENGTH_SHORT).show();
+                                                    } else {
+                                                        Toast.makeText(Register.this, "Failed to send verification email", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
+
+                                    // Navigate user to login page
                                     startActivity(new Intent(Register.this, Login.class));
                                     finish();
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Toast.makeText(Register.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                                 }
-                            } // Closing brace for onComplete method
-                        }); // Closing brace for addOnCompleteListener method
+                            }
+                        });
             }
         });
+
     }
 }

@@ -63,7 +63,8 @@ public class Login extends AppCompatActivity {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
+                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                if (task.isSuccessful() && user.isEmailVerified()) {
 
                                     startActivity(new Intent(Login.this, Home.class));
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
