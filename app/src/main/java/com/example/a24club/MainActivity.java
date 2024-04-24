@@ -2,9 +2,11 @@ package com.example.a24club;
 
 import static com.example.a24club.QuestionAnswer.correctAnswers;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
@@ -22,8 +24,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //TextView totalQuestionsTextView;
     TextView questionTextView;
+
     Button ansA, ansB, ansC, ansD;
     Button submitBtn;
+    private TextView countdownTimerTextView;
+    private CountDownTimer countDownTimer;
+    private final long countdownInterval = 1000; // Interval in milliseconds (1 second)
+    private final long countdownDuration = 16000; // Duration in milliseconds (15 seconds)
+    private final long resetDuration = 16000; // Reset duration in milliseconds (15 seconds)
+
 
     public static int score = 0;
     public static int highest_score = 0;
@@ -35,6 +44,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        countdownTimerTextView = findViewById(R.id.countdown_timer); // Initialize countdownTextView with the correct ID from your layout XML
+
+        // Initialize and start the countdown timer
+        countDownTimer = new CountDownTimer(countdownDuration, countdownInterval) {
+            public void onTick(long millisUntilFinished) {
+                // Update the TextView with the remaining time
+                countdownTimerTextView.setText(String.valueOf(millisUntilFinished / 1000));
+            }
+
+            @SuppressLint("SetTextI18n")
+            public void onFinish() {
+                // Countdown finished, reset to 15 and start again
+                countdownTimerTextView.setText("15");
+                if(currentQuestionIndex == totalQuestion ){
+
+                    finishQuiz();
+                }
+                currentQuestionIndex++;
+                loadNewQuestion();
+                startCountdown();
+            }
+        };
+
+        startCountdown(); // Start the countdown timer
 
         //totalQuestionsTextView = findViewById(R.id.total_question);
         questionTextView = findViewById(R.id.question);
@@ -49,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ansC.setOnClickListener(this);
         ansD.setOnClickListener(this);
         submitBtn.setOnClickListener(this);
+
 
         //totalQuestionsTextView.setText(String.valueOf(totalQuestion));
 
@@ -111,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     void loadNewQuestion(){
+        startCountdown();
 
         if(currentQuestionIndex == totalQuestion ){
 
@@ -159,6 +194,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Create an Intent to start the Categories activity
         Intent intent = new Intent(MainActivity.this, Categories.class);
         startActivity(intent);
+    }
+    private void startCountdown() {
+        countDownTimer.cancel(); // Cancel any existing countdown
+        countDownTimer.start(); // Start the countdown timer
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        countDownTimer.cancel(); // Cancel the countdown timer to avoid memory leaks
     }
 
 }
