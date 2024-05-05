@@ -20,6 +20,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     //TextView totalQuestionsTextView;
@@ -32,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final long countdownInterval = 1000; // Interval in milliseconds (1 second)
     private final long countdownDuration = 16000; // Duration in milliseconds (15 seconds)
     private final long resetDuration = 16000; // Reset duration in milliseconds (15 seconds)
+
+    private FirebaseFirestore db;
 
 
     public static int score = 0;
@@ -169,8 +179,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     void finishQuiz(){
         if(highest_score < score){
             highest_score = score * 100 / QuestionAnswer.question.length;
+            saveHighScore(highest_score);
         }
         String passStatus = "";
+
         if(score > totalQuestion*0.60){
             passStatus = "Passed";
         }else{
@@ -185,6 +197,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .show();
 
 
+    }
+
+    private void saveHighScore(int score) {
+        String userId = FirebaseAuth.getInstance().getUid();
+        if (userId != null) {
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            Map<String, Object> userScore = new HashMap<>();
+            userScore.put("highScore", score);
+
+            db.collection("userScores").document(userId)
+                    .set(userScore, SetOptions.merge());
+        }
     }
 
     void practiceAgain() {
