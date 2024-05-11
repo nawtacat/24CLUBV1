@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,6 +28,7 @@ import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -54,8 +56,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        countdownTimerTextView = findViewById(R.id.countdown_timer); // Initialize countdownTextView with the correct ID from your layout XML
+        db = FirebaseFirestore.getInstance();
 
+        countdownTimerTextView = findViewById(R.id.countdown_timer); // Initialize countdownTextView with the correct ID from your layout XML
         // Initialize and start the countdown timer
         countDownTimer = new CountDownTimer(countdownDuration, countdownInterval) {
             public void onTick(long millisUntilFinished) {
@@ -74,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 currentQuestionIndex++;
                 loadNewQuestion();
                 startCountdown();
+                onDestroy();
             }
         };
 
@@ -153,7 +157,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
-
     void loadNewQuestion(){
         startCountdown();
 
@@ -229,5 +232,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onDestroy();
         countDownTimer.cancel(); // Cancel the countdown timer to avoid memory leaks
     }
-
 }
