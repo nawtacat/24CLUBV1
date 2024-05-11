@@ -39,5 +39,14 @@ public class Categories extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Categories.this, Home.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }
