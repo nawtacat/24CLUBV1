@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         db = FirebaseFirestore.getInstance();
+        fetchHighScore();
 
         countdownTimerTextView = findViewById(R.id.countdown_timer); // Initialize countdownTextView with the correct ID from your layout XML
         // Initialize and start the countdown timer
@@ -180,27 +181,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    private void fetchHighScore() {
+        String userId = FirebaseAuth.getInstance().getUid();
+        if (userId != null) {
+            db.collection("userScores").document(userId)
+                    .get().addOnSuccessListener(documentSnapshot -> {
+                        if (documentSnapshot.exists()) {
+                            Number fetchedHighScore = documentSnapshot.getLong("highScore");
+                            if (fetchedHighScore != null) {
+                                highest_score = fetchedHighScore.intValue();
+                            }
+                        }
+                    }).addOnFailureListener(e -> Log.e("Firestore", "Error getting high score", e));
+        }
+    }
     void finishQuiz(){
-        if(highest_score < score){
-            highest_score = score * 100 / QuestionAnswer.question.length;
+        int potentialNewHighScore = score * 100 / QuestionAnswer.question.length;
+        if(highest_score < potentialNewHighScore){
+            highest_score = potentialNewHighScore;
             saveHighScore(highest_score);
         }
-        String passStatus = "";
-
-        if(score > totalQuestion*0.60){
-            passStatus = "Passed";
-        }else{
-            passStatus = "Failed";
-        }
+        String passStatus = score > totalQuestion * 0.60 ? "Passed" : "Failed";
 
         new AlertDialog.Builder(this)
                 .setTitle(passStatus)
-                .setMessage("Score is "+ score+" out of "+ totalQuestion)
-                .setPositiveButton("Practice again",(dialogInterface, i) -> practiceAgain() )
+                .setMessage("Score is " + score + " out of " + totalQuestion)
+                .setPositiveButton("Practice again", (dialogInterface, i) -> practiceAgain())
                 .setCancelable(false)
                 .show();
-
-
     }
 
     private void saveHighScore(int score) {
