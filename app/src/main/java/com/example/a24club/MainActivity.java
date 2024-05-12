@@ -60,28 +60,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         db = FirebaseFirestore.getInstance();
         fetchHighScore();
 
-        countdownTimerTextView = findViewById(R.id.countdown_timer); // Initialize countdownTextView with the correct ID from your layout XML
-        // Initialize and start the countdown timer
-        countDownTimer = new CountDownTimer(countdownDuration, countdownInterval) {
-            public void onTick(long millisUntilFinished) {
-                // Update the TextView with the remaining time
-                countdownTimerTextView.setText(String.valueOf(millisUntilFinished / 1000));
-            }
-
-            @SuppressLint("SetTextI18n")
-            public void onFinish() {
-                // Countdown finished, reset to 15 and start again
-                countdownTimerTextView.setText("15");
-                if(currentQuestionIndex == totalQuestion ){
-
-                    finishQuiz();
+            countdownTimerTextView = findViewById(R.id.countdown_timer); // Initialize countdownTextView with the correct ID from your layout XML
+            // Initialize and start the countdown timer
+            countDownTimer = new CountDownTimer(countdownDuration, countdownInterval) {
+                public void onTick(long millisUntilFinished) {
+                    // Update the TextView with the remaining time
+                    countdownTimerTextView.setText(String.valueOf(millisUntilFinished / 1000));
                 }
-                currentQuestionIndex++;
-                loadNewQuestion();
-                startCountdown();
-                onDestroy();
-            }
-        };
+
+                @SuppressLint("SetTextI18n")
+                public void onFinish() {
+                    // Countdown finished, reset to 15 and start again
+                    countdownTimerTextView.setText("15");
+                    if(currentQuestionIndex == totalQuestion ){
+                        onDestroy();
+                        finishQuiz();
+                    }
+                    else {
+                        currentQuestionIndex++;
+                        loadNewQuestion();
+                        startCountdown();
+                    }
+                }
+            };
 
         startCountdown(); // Start the countdown timer
 
