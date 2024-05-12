@@ -33,7 +33,7 @@ public class Settings extends AppCompatActivity {
                 editor.apply();
 
                 // Navigate to LoginActivity (or any other login screen)
-                Intent intent = new Intent(Settings.this, Register.class);
+                Intent intent = new Intent(Settings.this, Login.class);
                 startActivity(intent);
                 finish(); // Finish the Settings activity
             }

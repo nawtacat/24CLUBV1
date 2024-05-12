@@ -68,16 +68,16 @@ public class Register extends AppCompatActivity {
         });
         CardView cardView = findViewById(R.id.cardv);
         cardView.setCardBackgroundColor(Color.WHITE);
-        mAuth.addIdTokenListener(new FirebaseAuth.IdTokenListener() {
-            @Override
-            public void onIdTokenChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
+//        mAuth.addIdTokenListener(new FirebaseAuth.IdTokenListener() {
+//            @Override
+//            public void onIdTokenChanged(@NonNull FirebaseAuth firebaseAuth) {
+//                FirebaseUser user = firebaseAuth.getCurrentUser();
 //                if (user != null && user.isEmailVerified()) {
-//                    startActivity(new Intent(Register.this, Login.class));
+//
 //                    finish();
 //                }
-            }
-        });
+//            }
+//        });
 
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,7 +112,6 @@ public class Register extends AppCompatActivity {
                                                     }
                                                 }
                                             });
-                                    finish();
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Toast.makeText(Register.this, "Authentication failed.", Toast.LENGTH_SHORT).show();

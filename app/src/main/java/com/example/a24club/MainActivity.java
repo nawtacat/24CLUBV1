@@ -117,11 +117,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ansB.setBackgroundColor(Color.WHITE);
         ansC.setBackgroundColor(Color.WHITE);
         ansD.setBackgroundColor(Color.WHITE);
-
         Button clickedButton = (Button) view;
         if(clickedButton.getId()==R.id.submit_btn){
             if(selectedAnswer.equals(correctAnswers[currentQuestionIndex])){
                 score++;
+            }
+
+            if(selectedAnswer.equals(QuestionAnswer.choices[currentQuestionIndex][0])){
+                ansA.setBackgroundColor(Color.RED);
+            }
+
+            if(selectedAnswer.equals(QuestionAnswer.choices[currentQuestionIndex][1])){
+                ansB.setBackgroundColor(Color.RED);
+            }
+
+            if(selectedAnswer.equals(QuestionAnswer.choices[currentQuestionIndex][2])){
+                ansC.setBackgroundColor(Color.RED);
+            }
+
+            if(selectedAnswer.equals(QuestionAnswer.choices[currentQuestionIndex][3])){
+                ansD.setBackgroundColor(Color.RED);
             }
 
 
