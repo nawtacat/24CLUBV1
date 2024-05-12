@@ -12,6 +12,7 @@
     tools:context=".MainActivity">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
+        android:id="@+id/cardv"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         app:cardCornerRadius="30dp"
@@ -77,5 +78,5 @@
         android:textAlignment="center"
         android:id="@+id/signinText"
         android:textColor="@color/black"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginTop="20dp"/>
 </LinearLayout>

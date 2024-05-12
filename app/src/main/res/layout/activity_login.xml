@@ -12,6 +12,7 @@
     tools:context=".MainActivity">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
+        android:id="@+id/cardview"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         app:cardCornerRadius="30dp"
@@ -36,10 +37,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/username"
+                android:singleLine="true"
+                android:ellipsize="start"
+                android:scrollHorizontally="true"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="8dp"
-                android:hint="Username"
+                android:hint="@string/email"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
@@ -77,5 +81,5 @@
         android:textAlignment="center"
         android:id="@+id/signupText"
         android:textColor="@color/black"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginTop="20dp"/>
 </LinearLayout>

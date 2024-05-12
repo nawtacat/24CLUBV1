@@ -4,6 +4,7 @@ import static com.example.a24club.QuestionAnswer.correctAnswers;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -90,7 +91,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ansC = findViewById(R.id.answer3);
         ansD = findViewById(R.id.answer4);
         submitBtn = findViewById(R.id.submit_btn);
-
+        submitBtn.setTextColor(Color.WHITE);
+        submitBtn.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
         ansA.setOnClickListener(this);
         ansB.setOnClickListener(this);
         ansC.setOnClickListener(this);
@@ -152,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else{
             //choices button clicked
             selectedAnswer  = clickedButton.getText().toString();
-            clickedButton.setBackgroundColor(Color.MAGENTA);
+            clickedButton.setBackgroundColor(Color.BLUE);
 
         }
 
@@ -161,7 +163,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startCountdown();
 
         if(currentQuestionIndex == totalQuestion ){
-
             finishQuiz();
             return;
         }

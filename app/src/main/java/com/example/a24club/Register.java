@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -52,7 +54,9 @@ public class Register extends AppCompatActivity {
         editTextEmail = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
         buttonReg = findViewById(R.id.regButton);
+        buttonReg.setTextColor(Color.WHITE);
         textView = findViewById(R.id.signinText);
+        textView.setTextColor(Color.WHITE);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,14 +66,16 @@ public class Register extends AppCompatActivity {
 
             }
         });
+        CardView cardView = findViewById(R.id.cardv);
+        cardView.setCardBackgroundColor(Color.WHITE);
         mAuth.addIdTokenListener(new FirebaseAuth.IdTokenListener() {
             @Override
             public void onIdTokenChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null && user.isEmailVerified()) {
-                    startActivity(new Intent(Register.this, Login.class));
-                    finish();
-                }
+//                if (user != null && user.isEmailVerified()) {
+//                    startActivity(new Intent(Register.this, Login.class));
+//                    finish();
+//                }
             }
         });
 
@@ -106,9 +112,6 @@ public class Register extends AppCompatActivity {
                                                     }
                                                 }
                                             });
-
-                                    // Navigate user to login page
-                                    startActivity(new Intent(Register.this, Login.class));
                                     finish();
                                 } else {
                                     // If sign in fails, display a message to the user.

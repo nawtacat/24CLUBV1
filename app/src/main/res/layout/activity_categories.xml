@@ -43,13 +43,12 @@
     <Button
         android:id="@+id/back_button"
         android:layout_width="match_parent"
-        android:alpha="0.6"
         android:textSize="17sp"
         android:layout_height="100dp"
-        android:text="Go Back"
+        android:text="@string/catback"
         android:textColor="@color/white"
         android:background="@drawable/rounded_button"
-        android:layout_margin="60dp"/>
+        android:layout_margin="20dp"/>
 
 
     <!-- Add more buttons as needed -->

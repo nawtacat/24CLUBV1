@@ -1,8 +1,10 @@
 package com.example.a24club;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +15,8 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -33,6 +37,7 @@ public class Login extends AppCompatActivity {
 
     TextView tosignup;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,11 +47,14 @@ public class Login extends AppCompatActivity {
 
 
         mAuth = FirebaseAuth.getInstance();
-
+        CardView cardView = findViewById(R.id.cardview);
+        cardView.setCardBackgroundColor(Color.WHITE);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         loginButton = findViewById(R.id.loginButton);
+        loginButton.setTextColor(Color.WHITE);
         tosignup = findViewById(R.id.signupText);
+        tosignup.setTextColor(Color.WHITE);
         tosignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

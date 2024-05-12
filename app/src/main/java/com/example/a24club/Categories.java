@@ -43,6 +43,7 @@ public class Categories extends AppCompatActivity {
             }
         });
         Button backButton = findViewById(R.id.back_button);
+        backButton.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

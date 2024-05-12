@@ -24,4 +24,7 @@
     <string name="already_have_an_account_log_in">Already have an account? Log in</string>
     <string name="logout">Logout</string>
     <string name="back">Back</string>
+    <string name="outback">Back</string>
+    <string name="catback">Back</string>
+    <string name="email">Email</string>
 </resources>
