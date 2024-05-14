@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
@@ -120,6 +121,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ansD.setBackgroundColor(Color.WHITE);
         Button clickedButton = (Button) view;
         if(clickedButton.getId()==R.id.submit_btn){
+            if(selectedAnswer.equals("empty")){
+                Toast.makeText(this, "Please select an option", Toast.LENGTH_SHORT).show();
+                return;
+            }
             if(selectedAnswer.equals(correctAnswers[currentQuestionIndex])){
                 score++;
             }
@@ -178,6 +183,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     void loadNewQuestion(){
         startCountdown();
+        selectedAnswer = "empty";
 
         if(currentQuestionIndex == totalQuestion ){
             finishQuiz();
@@ -194,6 +200,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ansB.setBackgroundColor(Color.WHITE);
         ansC.setBackgroundColor(Color.WHITE);
         ansD.setBackgroundColor(Color.WHITE);
+
 
     }
 
