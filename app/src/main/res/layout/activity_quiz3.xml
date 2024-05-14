@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/campnou"
+    tools:context=".MainActivity"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/countdown_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="15"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        />
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/choices_layout"
+        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="132dp"
+        android:text="@string/winner_of_uefa_champions_league_2003"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/choices_layout"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/answer1"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:text="@string/ans_a"
+            android:textColor="@color/black"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/answer2"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:text="@string/ans_b"
+            android:textColor="@color/black"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/answer3"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:text="@string/ans_c"
+            android:textColor="@color/black"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/answer4"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:text="@string/ans_d"
+            android:textColor="@color/black"
+            />
+
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/submit_btn"
+        android:text="@string/submit"
+        android:layout_below="@id/choices_layout"
+        android:layout_marginTop="40dp"/>
+
+
+
+
+</RelativeLayout>

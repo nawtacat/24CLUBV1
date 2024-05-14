@@ -26,7 +26,7 @@
         android:layout_height="100dp"
         android:alpha="0.6"
         android:textSize="17sp"
-        android:text="@string/euro_2016"
+        android:text="@string/euro"
         android:textColor="@color/white"
         android:background="@drawable/rounded_button"
         android:layout_margin="20dp"/>
@@ -36,7 +36,7 @@
         android:alpha="0.6"
         android:textSize="17sp"
         android:layout_height="100dp"
-        android:text="@string/eredivise"
+        android:text="@string/premier_league"
         android:textColor="@color/white"
         android:background="@drawable/rounded_button"
         android:layout_margin="20dp"/>

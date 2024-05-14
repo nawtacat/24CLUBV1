@@ -27,4 +27,6 @@
     <string name="outback">Back</string>
     <string name="catback">Back</string>
     <string name="email">Email</string>
+    <string name="euro">Euro</string>
+    <string name="premier_league">Premier League</string>
 </resources>
