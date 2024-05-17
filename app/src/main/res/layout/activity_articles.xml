@@ -1,70 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- res/layout/activity_article.xml -->
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/campnou"
+    tools:context=".Home">
 
-    <RelativeLayout
+
+
+    <Button
+        android:id="@+id/cat1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="100dp"
+        android:text="@string/user_1"
+        android:textSize="17sp"
+        android:alpha="0.6"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_button"
+        android:layout_margin="20dp"/>
+    <Button
+        android:id="@+id/cat2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:alpha="0.6"
+        android:textSize="17sp"
+        android:text="@string/user_2"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_button"
+        android:layout_margin="20dp"/>
+    <Button
+    android:id="@+id/cat3"
+    android:layout_width="match_parent"
+    android:alpha="0.6"
+    android:textSize="17sp"
+    android:layout_height="100dp"
+    android:text="@string/user_3"
+    android:textColor="@color/white"
+    android:background="@drawable/rounded_button"
+    android:layout_margin="20dp"/>
+    <Button
+        android:id="@+id/cat4"
+        android:layout_width="match_parent"
+        android:alpha="0.6"
+        android:textSize="17sp"
+        android:layout_height="100dp"
+        android:text="@string/user_4"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_button"
+        android:layout_margin="20dp"/>
+    <Button
+        android:id="@+id/backbtn"
+        android:layout_width="match_parent"
+        android:textSize="17sp"
+        android:layout_height="100dp"
+        android:text="@string/backie"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_button"
+        android:layout_margin="20dp"/>
 
-        <TextView
-            android:id="@+id/article_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/article_title"
-            android:textSize="24sp"
-            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/article_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/thetext"
-            android:layout_below="@id/article_title"
-            android:layout_marginTop="20dp"
-            android:textSize="16sp" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/article_content"
-            android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true"
-            app:srcCompat="@drawable/zidane" />
+    <!-- Add more buttons as needed -->
 
-        <TextView
-            android:id="@+id/article_content1"
-            android:layout_width="match_parent"
-            android:layout_below="@id/imageView2"
-            android:layout_height="wrap_content"
-            android:text="@string/thetext"
-            android:layout_marginTop="20dp"
-            android:textSize="16sp" />
+</LinearLayout>
 
-        <TextView
-            android:id="@+id/article_content2"
-            android:layout_width="match_parent"
-            android:layout_below="@id/article_content1"
-            android:layout_height="wrap_content"
-            android:text="@string/thetext"
-            android:layout_marginTop="20dp"
-            android:textSize="16sp" />
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/article_content2"
-            android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true"
-            app:srcCompat="@drawable/ronaldinho" />
-
-    </RelativeLayout>
-
-</ScrollView>
 

@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="170dp"
         android:textSize="30sp"
-        android:text="@string/articles"
+        android:text="@string/leaderboard"
         android:textColor="@color/white"
         android:background="@drawable/rounded_button"
         android:alpha="0.6"
@@ -38,6 +38,7 @@
         android:background="@drawable/rounded_button"
         android:alpha="0.6"
         android:layout_margin="20dp"/>
+
 
 
     <!-- Add more buttons as needed -->

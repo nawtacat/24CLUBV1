@@ -29,4 +29,11 @@
     <string name="email">Email</string>
     <string name="euro">Euro</string>
     <string name="premier_league">Premier League</string>
+    <string name="nickname">Nickname</string>
+    <string name="user_1">User 1</string>
+    <string name="user_2">User 2</string>
+    <string name="user_3">User 3</string>
+    <string name="user_4">User 4</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="backie">Back</string>
 </resources>
