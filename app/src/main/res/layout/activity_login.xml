@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:id="@+id/cardview"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/snessy"
         android:layout_margin="30dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp"
