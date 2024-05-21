@@ -30,13 +30,16 @@ public class Categories extends AppCompatActivity {
         Button Cat1 = findViewById(R.id.cat1);
         Button Cat2 = findViewById(R.id.cat2);
         Button Cat3 = findViewById(R.id.cat3);
+        Button Cat4 = findViewById(R.id.cat4);
         Cat1.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
         Cat2.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
         Cat3.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
+        Cat4.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
 
         readHighScore(mAuth.getCurrentUser().getUid());
         readHighScore2(mAuth.getCurrentUser().getUid());
         readHighScore3(mAuth.getCurrentUser().getUid());
+        readHighScore4(mAuth.getCurrentUser().getUid());
         Cat1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +58,13 @@ public class Categories extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Categories.this, Quiz3.class);
+                startActivity(intent);
+            }
+        });
+        Cat4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Categories.this, Quiz4.class);
                 startActivity(intent);
             }
         });
@@ -115,6 +125,21 @@ public class Categories extends AppCompatActivity {
                     Log.d("Firestore", "Error getting documents: ", e);
                 });
     }
+    private void readHighScore4(String userId) {
+        System.out.println("inside the readHighScore method");
+        db.collection("Quiz4").document(userId)
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists() && documentSnapshot.contains("highScore")) {
+                        highest_score = documentSnapshot.getLong("highScore") != null ? documentSnapshot.getLong("highScore") : 0;
+                        System.out.println(highest_score);
+                        updateHighScoreText4();
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    Log.d("Firestore", "Error getting documents: ", e);
+                });
+    }
 
     private void updateHighScoreText() {
         Button Cat1 = findViewById(R.id.cat1);
@@ -127,9 +152,14 @@ public class Categories extends AppCompatActivity {
         Cat2.setText(highscoreText2);
     }
     private void updateHighScoreText3() {
-        Button Cat2 = findViewById(R.id.cat3);
+        Button Cat3 = findViewById(R.id.cat3);
         String highscoreText3 = "Premier League - " + String.valueOf(highest_score) + "%";
-        Cat2.setText(highscoreText3);
+        Cat3.setText(highscoreText3);
+    }
+    private void updateHighScoreText4() {
+        Button Cat4 = findViewById(R.id.cat4);
+        String highscoreText4 = "World Cup - " + String.valueOf(highest_score) + "%";
+        Cat4.setText(highscoreText4);
     }
 
 }

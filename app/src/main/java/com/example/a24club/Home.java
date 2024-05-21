@@ -58,7 +58,7 @@ public class Home extends AppCompatActivity {
     }
 
     private void fetchAndUpdateScores(String userId) {
-        List<String> quizzes = Arrays.asList("userScores", "Quiz2", "Quiz3");
+        List<String> quizzes = Arrays.asList("userScores", "Quiz2", "Quiz3", "Quiz4");
         AtomicInteger totalScore = new AtomicInteger(0);
 
         for (String quiz : quizzes) {

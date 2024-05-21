@@ -37,4 +37,6 @@
     <string name="leaderboard">Leaderboard</string>
     <string name="backie">Back</string>
     <string name="play">Play</string>
+    <string name="enter_your_nickname">Enter your nickname</string>
+    <string name="world_cup">World Cup</string>
 </resources>

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/campnou"
+    android:background="@drawable/backvariant"
     tools:context=".MainActivity"
     android:padding="24dp">
 
@@ -16,7 +16,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:text="15"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textColor="@color/white"
     />
     <TextView
@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/choices_layout"
         android:layout_margin="20dp"
+        android:fontFamily="@font/snessy"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="132dp"
         android:text="@string/winner_of_uefa_champions_league_2003"
@@ -42,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/answer1"
+            android:fontFamily="@font/snessy"
             android:layout_margin="5dp"
             android:backgroundTint="@color/white"
             android:text="@string/ans_a"
@@ -52,6 +54,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/answer2"
             android:layout_margin="5dp"
+            android:fontFamily="@font/snessy"
             android:backgroundTint="@color/white"
             android:text="@string/ans_b"
             android:textColor="@color/black"
@@ -60,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" 
             android:id="@+id/answer3"
+            android:fontFamily="@font/snessy"
             android:layout_margin="5dp"
             android:backgroundTint="@color/white"
             android:text="@string/ans_c"
@@ -72,12 +76,14 @@
             android:layout_margin="5dp"
             android:backgroundTint="@color/white"
             android:text="@string/ans_d"
+            android:fontFamily="@font/snessy"
             android:textColor="@color/black"
             />
 
     </LinearLayout>
     <Button
         android:layout_width="match_parent"
+        android:fontFamily="@font/snessy"
         android:layout_height="wrap_content"
         android:id="@+id/submit_btn"
         android:text="@string/submit"

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/campnou"
+    android:background="@drawable/backvariant"
     tools:context=".Home">
 
 
@@ -17,8 +17,7 @@
         android:text="@string/user_1"
         android:textSize="17sp"
         android:fontFamily="@font/snessy"
-        android:alpha="0.6"
-        android:textColor="@color/white"
+        android:textColor="#FFFFFFFF"
         android:background="@drawable/rounded_button"
         android:layout_margin="20dp"/>
     <Button
@@ -26,32 +25,29 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:fontFamily="@font/snessy"
-        android:alpha="0.6"
         android:textSize="17sp"
         android:text="@string/user_2"
-        android:textColor="@color/white"
+        android:textColor="#FFFFFFFF"
         android:background="@drawable/rounded_button"
         android:layout_margin="20dp"/>
     <Button
     android:id="@+id/cat3"
     android:layout_width="match_parent"
-    android:alpha="0.6"
     android:textSize="17sp"
         android:fontFamily="@font/snessy"
     android:layout_height="100dp"
     android:text="@string/user_3"
-    android:textColor="@color/white"
+        android:textColor="#FFFFFFFF"
     android:background="@drawable/rounded_button"
     android:layout_margin="20dp"/>
     <Button
         android:id="@+id/cat4"
         android:layout_width="match_parent"
-        android:alpha="0.6"
         android:textSize="17sp"
         android:layout_height="100dp"
         android:fontFamily="@font/snessy"
         android:text="@string/user_4"
-        android:textColor="@color/white"
+        android:textColor="#FFFFFFFF"
         android:background="@drawable/rounded_button"
         android:layout_margin="20dp"/>
     <Button
@@ -62,7 +58,7 @@
         android:text="@string/backie"
         android:textColor="@color/white"
         android:fontFamily="@font/snessy"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/rounded_button_dark"
         android:layout_margin="20dp"/>
 
 

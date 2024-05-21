@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/campnou"
+    android:background="@drawable/backvariant"
     tools:context=".Home">
 
 
@@ -17,30 +17,37 @@
         android:text="@string/champions_league"
         android:fontFamily="@font/snessy"
         android:textSize="17sp"
-        android:alpha="0.6"
-        android:textColor="@color/white"
+        android:textColor="#FFFFFFFF"
         android:background="@drawable/rounded_button"
         android:layout_margin="20dp"/>
     <Button
         android:id="@+id/cat2"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:alpha="0.6"
         android:fontFamily="@font/snessy"
         android:textSize="17sp"
         android:text="@string/euro"
-        android:textColor="@color/white"
+        android:textColor="#FFFFFFFF"
         android:background="@drawable/rounded_button"
         android:layout_margin="20dp"/>
     <Button
         android:id="@+id/cat3"
         android:layout_width="match_parent"
-        android:alpha="0.6"
         android:textSize="17sp"
         android:layout_height="100dp"
         android:text="@string/premier_league"
         android:fontFamily="@font/snessy"
-        android:textColor="@color/white"
+        android:textColor="#FFFFFFFF"
+        android:background="@drawable/rounded_button"
+        android:layout_margin="20dp"/>
+    <Button
+        android:id="@+id/cat4"
+        android:layout_width="match_parent"
+        android:textSize="17sp"
+        android:layout_height="100dp"
+        android:text="@string/world_cup"
+        android:fontFamily="@font/snessy"
+        android:textColor="#FFFFFFFF"
         android:background="@drawable/rounded_button"
         android:layout_margin="20dp"/>
     <Button
@@ -50,8 +57,8 @@
         android:fontFamily="@font/snessy"
         android:layout_height="100dp"
         android:text="@string/catback"
-        android:textColor="@color/white"
-        android:background="@drawable/rounded_button"
+        android:textColor="#FFFFFFFF"
+        android:background="@drawable/rounded_button_dark"
         android:layout_margin="20dp"/>
 
 

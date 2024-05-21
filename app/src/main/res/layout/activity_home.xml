@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/campnou"
+    android:background="@drawable/backvariant"
     tools:context=".Home">
 
     <Button
@@ -15,9 +15,8 @@
         android:text="@string/play"
         android:textSize="60sp"
         android:fontFamily="@font/snessy"
-        android:textColor="@color/white"
         android:background="@drawable/rounded_button"
-        android:alpha="0.6"
+        android:textColor="#FFFFFFFF"
         android:layout_margin="20dp"/>
     <Button
         android:id="@+id/articles_btn"
@@ -26,9 +25,8 @@
         android:textSize="60sp"
         android:fontFamily="@font/snessy"
         android:text="@string/leaderboard"
-        android:textColor="@color/white"
         android:background="@drawable/rounded_button"
-        android:alpha="0.6"
+        android:textColor="#FFFFFFFF"
         android:layout_margin="20dp"/>
     <Button
         android:id="@+id/settings_btn"
@@ -36,10 +34,9 @@
         android:textSize="60sp"
         android:layout_height="170dp"
         android:text="@string/settings"
+        android:textColor="#FFFFFFFF"
         android:fontFamily="@font/snessy"
-        android:textColor="@color/white"
         android:background="@drawable/rounded_button"
-        android:alpha="0.6"
         android:layout_margin="20dp"/>
 
 

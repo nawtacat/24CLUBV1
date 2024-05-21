@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/campnou"
+    android:background="@drawable/backvariant"
     tools:context=".Settings">
     <Button
         android:id="@+id/nick_btn"
@@ -14,9 +14,8 @@
         android:text="@string/nickname"
         android:textSize="30sp"
         android:fontFamily="@font/snessy"
-        android:textColor="@color/white"
+        android:textColor="#FFFFFFFF"
         android:background="@drawable/rounded_button"
-        android:alpha="0.6"
         android:layout_margin="20dp"/>
     <EditText
         android:id="@+id/nick"
@@ -25,6 +24,9 @@
         android:inputType="textPersonName"
         android:gravity="center"
         android:ems="10"
+        android:fontFamily="@font/snessy"
+        android:hint="@string/enter_your_nickname"
+        android:textColor="#000000"
         android:background="@drawable/rounded_button"
         android:layout_marginTop="5dp"
         android:layout_marginHorizontal="20dp"
@@ -36,20 +38,19 @@
         android:layout_height="170dp"
         android:text="@string/logout"
         android:fontFamily="@font/snessy"
-        android:textSize="30sp"
-        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:textColor="#FFFFFFFF"
         android:background="@drawable/rounded_button"
-        android:alpha="0.6"
         android:layout_margin="20dp"/>
     <Button
         android:id="@+id/setting_goback"
         android:layout_width="match_parent"
         android:layout_height="170dp"
         android:text="@string/outback"
-        android:textSize="30sp"
-        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:textColor="#FFFFFFFF"
         android:fontFamily="@font/snessy"
-        android:background="@drawable/rounded_button"
-        android:alpha="0.6"
+        android:background="@drawable/rounded_button_dark"
+
         android:layout_margin="20dp"/>
 </LinearLayout>

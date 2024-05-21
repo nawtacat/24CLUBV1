@@ -1,6 +1,6 @@
 package com.example.a24club;
 
-import static com.example.a24club.QuestionAnswer.correctAnswers;
+import static com.example.a24club.QuestionAnswer4.correctAnswers;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class Quiz4 extends AppCompatActivity implements View.OnClickListener{
 
     //TextView totalQuestionsTextView;
     TextView questionTextView;
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static int score = 0;
     public static int highest_score = 0;
-    int totalQuestion = QuestionAnswer.question.length;
+    int totalQuestion = QuestionAnswer4.question.length;
     int currentQuestionIndex = 0;
     String selectedAnswer = "";
 
@@ -61,29 +61,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         db = FirebaseFirestore.getInstance();
         fetchHighScore();
 
-            countdownTimerTextView = findViewById(R.id.countdown_timer); // Initialize countdownTextView with the correct ID from your layout XML
-            // Initialize and start the countdown timer
-            countDownTimer = new CountDownTimer(countdownDuration, countdownInterval) {
-                public void onTick(long millisUntilFinished) {
-                    // Update the TextView with the remaining time
-                    countdownTimerTextView.setText(String.valueOf(millisUntilFinished / 1000));
-                }
+        countdownTimerTextView = findViewById(R.id.countdown_timer); // Initialize countdownTextView with the correct ID from your layout XML
+        // Initialize and start the countdown timer
+        countDownTimer = new CountDownTimer(countdownDuration, countdownInterval) {
+            public void onTick(long millisUntilFinished) {
+                // Update the TextView with the remaining time
+                countdownTimerTextView.setText(String.valueOf(millisUntilFinished / 1000));
+            }
 
-                @SuppressLint("SetTextI18n")
-                public void onFinish() {
-                    // Countdown finished, reset to 15 and start again
-                    countdownTimerTextView.setText("15");
-                    if(currentQuestionIndex == totalQuestion ){
-                        onDestroy();
-                        finishQuiz();
-                    }
-                    else {
-                        currentQuestionIndex++;
-                        loadNewQuestion();
-                        startCountdown();
-                    }
+            @SuppressLint("SetTextI18n")
+            public void onFinish() {
+                // Countdown finished, reset to 15 and start again
+                countdownTimerTextView.setText("15");
+                if(currentQuestionIndex == totalQuestion ){
+                    onDestroy();
+                    finishQuiz();
                 }
-            };
+                else {
+                    currentQuestionIndex++;
+                    loadNewQuestion();
+                    startCountdown();
+                }
+            }
+        };
 
         startCountdown(); // Start the countdown timer
 
@@ -120,42 +120,60 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ansC.setBackgroundColor(Color.WHITE);
         ansD.setBackgroundColor(Color.WHITE);
         Button clickedButton = (Button) view;
-        if(clickedButton.getId() == R.id.submit_btn){
-            clickedButton.setEnabled(false);  // Disable the button immediately when clicked
-
+        if(clickedButton.getId()==R.id.submit_btn){
             if(selectedAnswer.equals("empty")){
                 Toast.makeText(this, "Please select an option", Toast.LENGTH_SHORT).show();
-                clickedButton.setEnabled(true);  // Re-enable the button if no selection
                 return;
             }
-
-            // Check answers and set background colors
             if(selectedAnswer.equals(correctAnswers[currentQuestionIndex])){
                 score++;
             }
 
-            Button[] answerButtons = {ansA, ansB, ansC, ansD};
-            for (int i = 0; i < answerButtons.length; i++) {
-                if (selectedAnswer.equals(QuestionAnswer.choices[currentQuestionIndex][i])) {
-                    answerButtons[i].setBackgroundColor(Color.RED);
-                }
-                if (QuestionAnswer.choices[currentQuestionIndex][i].equals(correctAnswers[currentQuestionIndex])) {
-                    answerButtons[i].setBackgroundColor(Color.GREEN);
-                }
+            if(selectedAnswer.equals(QuestionAnswer4.choices[currentQuestionIndex][0])){
+                ansA.setBackgroundColor(Color.RED);
             }
 
+            if(selectedAnswer.equals(QuestionAnswer4.choices[currentQuestionIndex][1])){
+                ansB.setBackgroundColor(Color.RED);
+            }
+
+            if(selectedAnswer.equals(QuestionAnswer4.choices[currentQuestionIndex][2])){
+                ansC.setBackgroundColor(Color.RED);
+            }
+
+            if(selectedAnswer.equals(QuestionAnswer4.choices[currentQuestionIndex][3])){
+                ansD.setBackgroundColor(Color.RED);
+            }
+
+
+            //GoGreen Logic Here
+            if(QuestionAnswer4.choices[currentQuestionIndex][0].equals(correctAnswers[currentQuestionIndex])){
+                ansA.setBackgroundColor(Color.GREEN);
+            }
+
+            if(QuestionAnswer4.choices[currentQuestionIndex][1].equals(correctAnswers[currentQuestionIndex])){
+                ansB.setBackgroundColor(Color.GREEN);
+            }
+
+            if(QuestionAnswer4.choices[currentQuestionIndex][2].equals(correctAnswers[currentQuestionIndex])){
+                ansC.setBackgroundColor(Color.GREEN);
+            }
+
+            if(QuestionAnswer4.choices[currentQuestionIndex][3].equals(correctAnswers[currentQuestionIndex])){
+                ansD.setBackgroundColor(Color.GREEN);
+            }
             currentQuestionIndex++;
 
-            // Use a single handler to delay loading new questions and re-enabling the button
-            new Handler(Looper.getMainLooper()).postDelayed(() -> {
-                loadNewQuestion();
-                clickedButton.setEnabled(true);  // Re-enable the button after loading the new question
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadNewQuestion();
+                }
             }, 2000);
-        }
 
 
-
-    else{
+        }else{
             //choices button clicked
             selectedAnswer  = clickedButton.getText().toString();
             clickedButton.setBackgroundColor(Color.BLUE);
@@ -172,11 +190,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        questionTextView.setText(QuestionAnswer.question[currentQuestionIndex]);
-        ansA.setText(QuestionAnswer.choices[currentQuestionIndex][0]);
-        ansB.setText(QuestionAnswer.choices[currentQuestionIndex][1]);
-        ansC.setText(QuestionAnswer.choices[currentQuestionIndex][2]);
-        ansD.setText(QuestionAnswer.choices[currentQuestionIndex][3]);
+        questionTextView.setText(QuestionAnswer4.question[currentQuestionIndex]);
+        ansA.setText(QuestionAnswer4.choices[currentQuestionIndex][0]);
+        ansB.setText(QuestionAnswer4.choices[currentQuestionIndex][1]);
+        ansC.setText(QuestionAnswer4.choices[currentQuestionIndex][2]);
+        ansD.setText(QuestionAnswer4.choices[currentQuestionIndex][3]);
 
         ansA.setBackgroundColor(Color.WHITE);
         ansB.setBackgroundColor(Color.WHITE);
@@ -189,7 +207,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void fetchHighScore() {
         String userId = FirebaseAuth.getInstance().getUid();
         if (userId != null) {
-            db.collection("userScores").document(userId)
+            db.collection("Quiz4").document(userId)
                     .get().addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()) {
                             Number fetchedHighScore = documentSnapshot.getLong("highScore");
@@ -201,7 +219,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
     void finishQuiz(){
-        int potentialNewHighScore = score * 100 / QuestionAnswer.question.length;
+        int potentialNewHighScore = score * 100 / QuestionAnswer4.question.length;
         if(highest_score < potentialNewHighScore){
             highest_score = potentialNewHighScore;
             saveHighScore(highest_score);
@@ -223,7 +241,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Map<String, Object> userScore = new HashMap<>();
             userScore.put("highScore", score);
 
-            db.collection("userScores").document(userId)
+            db.collection("Quiz4").document(userId)
                     .set(userScore, SetOptions.merge());
         }
     }
@@ -233,7 +251,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         currentQuestionIndex = 0;
 
         // Create an Intent to start the Categories activity
-        Intent intent = new Intent(MainActivity.this, Categories.class);
+        Intent intent = new Intent(Quiz4.this, Categories.class);
         startActivity(intent);
     }
     private void startCountdown() {
